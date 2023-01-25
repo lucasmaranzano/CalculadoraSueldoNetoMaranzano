@@ -21,6 +21,7 @@ h1 {
   text-transform: uppercase;
   font-family: "Samsung Sharp Sans Bold", sans-serif;
   transition:0.3s;
+  cursor: default;
 }
 
 h1:hover {
