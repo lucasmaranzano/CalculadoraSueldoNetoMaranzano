@@ -21,7 +21,18 @@ function calcularSueldoNeto() {
   let timestamp = new Date().toLocaleString();
 
   if (isNaN(sueldoBruto) || sueldoBruto <= 0) {
-    alert("Por favor ingrese un valor numérico y positivo");
+    Swal.fire({
+      title: '¡Por favor ingrese un valor numérico y positivo!',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      allowOutsideClick: false,
+      confirmButtonText:'Aceptar',
+      timer: 3000,
+    })
     form.reset();
     return;
   }
