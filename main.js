@@ -22,17 +22,17 @@ function calcularSueldoNeto() {
 
   if (isNaN(sueldoBruto) || sueldoBruto <= 0) {
     Swal.fire({
-      title: '¡Por favor ingrese un valor numérico y positivo!',
+      title: "¡Por favor ingrese un valor numérico y positivo!",
       showClass: {
-        popup: 'animate__animated animate__fadeInDown'
+        popup: "animate__animated animate__fadeInDown",
       },
       hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
+        popup: "animate__animated animate__fadeOutUp",
       },
       allowOutsideClick: false,
-      confirmButtonText:'Aceptar',
+      confirmButtonText: "Aceptar",
       timer: 3000,
-    })
+    });
     form.reset();
     return;
   }
@@ -52,8 +52,7 @@ function calcularSueldoNeto() {
 
   componentesSueldoNeto.sueldoNeto = sueldoNeto.toFixed(2);
 
-  let resultado = `
-  
+  let resultado = `  
     <div><span class="timestamp"> Fecha y hora del calculo: </span> <span class="timestampResultado">${timestamp}</span></div>
     <div><span class="sueldoBruto"> Sueldo Bruto Ingresado: </span> <span class="sueldoBrutoResultado">$${componentesSueldoNeto.sueldoBruto}</span></div>
     <div><span class="aportes"> Jubilacion: </span> <span class="aportesResultado">-$${componentesSueldoNeto.jubilacion}</span></div>
@@ -61,6 +60,16 @@ function calcularSueldoNeto() {
     <div><span class="aportes"> PAMI: </span> <span class="aportesResultado">-$${componentesSueldoNeto.pami}</span></div>
     <div><span class="sueldoNeto"> Sueldo neto: </span> <span class="sueldoNetoResultado">$${componentesSueldoNeto.sueldoNeto}</span></div>
     `;
+
+  if (document.getElementById("netoADolar").checked) {
+    let resultadoBlue = (sueldoNeto / valorBlueVenta).toFixed(2);
+    let resultadoOficial = (sueldoNeto / valorOficialVenta).toFixed(2);
+
+    resultado += `  
+    <div><span class="sueldoNeto"> Sueldo neto a dólar Oficial: </span> <span class="sueldoNetoResultado">$${resultadoOficial}</span></div>
+    <div><span class="sueldoNeto"> Sueldo neto a dólar Blue: </span> <span class="sueldoNetoResultado">$${resultadoBlue}</span></div>
+      `;
+  }
   historial.push(resultado);
   agregarAlHistorial(historial);
   form.reset();
