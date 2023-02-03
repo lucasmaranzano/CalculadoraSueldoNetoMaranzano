@@ -21,15 +21,36 @@
         <h1 class="my-5">Calcular Sueldo Neto Argentina</h1>
     </div>
 
+    <div class="d-flex align-items-center justify-content-end" id="divDolar">
+        <div class="valorDolares m-2">
+            <div class="valorBlueVenta text-bg-danger p-2">Valor Dolar Blue: <span id="valorBlueVenta"
+                    class="text-info"></span>
+            </div>
+            <div class="valorOficialVenta text-bg-danger p-2">Valor Dolar Oficial: <span id="valorOficialVenta"
+                    class="text-info"></span>
+            </div>
+        </div>
+    </div>
+
+
     <div class="row">
         <form class="col-md-6 mx-auto" id="form">
+
             <label for="sueldoBruto" class="text-heading fw-bold mt-5 mb-4 ">Ingresar Sueldo Bruto:</label>
+
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">$</span>
                 </div>
                 <input type="TEXT" name="sueldobruto" id="sueldoBruto" class="form-control">
                 <div class="input-group-append">
+                </div>
+            </div>
+
+            <div class="container-fluid mb-3">
+                <div class="form-check form-switch form-check-reverse text-center">
+                    <label class="form-check-label fs-4" for="netoADolar">Deseas calcular el sueldo neto en dólares?</label>
+                    <input class="form-check-input fs-5" type="checkbox" role="switch" id="netoADolar" checked>
                 </div>
             </div>
 
@@ -56,9 +77,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-    <script src="
-https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js
-"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+
+    <script src="dolares.js"></script>
 
 
 
